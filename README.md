@@ -4,7 +4,7 @@
   # fast-chat
 </div>
 
-A lightweight, single-file AI chat interface. No server, no build step, no tracking — just Visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
+A lightweight, single-file AI chat interface. No server, no build step, no tracking — just visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
 
 <div align="center">
   <img src="https://adrianpriza-ai.github.io/fast-chat.png" alt="screenshot" height="450">
