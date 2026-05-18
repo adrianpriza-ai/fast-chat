@@ -18,11 +18,11 @@
 /* ===== THEME VARS ===== */
 :root {
   --accent: #4da8da;
-  --bg: #1c1c1e;
-  --surface: #2c2c2e;
-  --surface2: #3a3a3c;
-  --surface3: #48484a;
-  --border: #3a3a3c;
+  --bg: #0c0c0e;
+  --surface: #141416;
+  --surface2: #1c1c1e;
+  --surface3: #242426;
+  --border: #2c2c2e;
   --text: #f0f0f2;
   --text-sub: #aeaeb2;
   --text-muted: #636366;
@@ -33,34 +33,34 @@
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg: #f2f2f7;
-    --surface: #ffffff;
-    --surface2: #e8e8ed;
-    --surface3: #d8d8dd;
-    --border: #c7c7cc;
+    --bg: #f0efe8;
+    --surface: #f8f7f0;
+    --surface2: #e8e7e0;
+    --surface3: #dcdbd4;
+    --border: #cac9c2;
     --text: #1c1c1e;
     --text-sub: #48484a;
-    --text-muted: #aeaeb2;
+    --text-muted: #9a9a9c;
     color-scheme: light;
   }
 }
 [data-theme="light"] {
-  --bg: #f2f2f7;
-  --surface: #ffffff;
-  --surface2: #e8e8ed;
-  --surface3: #d8d8dd;
-  --border: #c7c7cc;
+  --bg: #f0efe8;
+  --surface: #f8f7f0;
+  --surface2: #e8e7e0;
+  --surface3: #dcdbd4;
+  --border: #cac9c2;
   --text: #1c1c1e;
   --text-sub: #48484a;
-  --text-muted: #aeaeb2;
+  --text-muted: #9a9a9c;
   color-scheme: light;
 }
 [data-theme="dark"] {
-  --bg: #1c1c1e;
-  --surface: #2c2c2e;
-  --surface2: #3a3a3c;
-  --surface3: #48484a;
-  --border: #3a3a3c;
+  --bg: #0c0c0e;
+  --surface: #141416;
+  --surface2: #1c1c1e;
+  --surface3: #242426;
+  --border: #2c2c2e;
   --text: #f0f0f2;
   --text-sub: #aeaeb2;
   --text-muted: #636366;
@@ -81,7 +81,7 @@ body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text);
 
 .sb-top { padding:12px 10px 8px; flex-shrink:0; }
 .sb-brand { display:flex; align-items:center; gap:9px; padding:6px 10px 10px; }
-.sb-brand-logo svg { width:28px; height:28px; border-radius:8px; }
+.sb-brand-logo img { width:28px; height:28px; border-radius:6px; display:block; }
 .sb-brand-name { font-size:.93rem; font-weight:700; letter-spacing:-.01em; }
 
 .sb-new-btn {
@@ -93,6 +93,18 @@ body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text);
 }
 .sb-new-btn:hover { background:var(--surface2); }
 .sb-section-label { padding:14px 12px 5px; font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+.sessions-limit-notice {
+  margin:6px 8px 4px; padding:7px 10px; border-radius:7px;
+  font-size:.72rem; line-height:1.5; font-family:'IBM Plex Mono',monospace;
+  border:1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+  background:color-mix(in srgb, var(--warn) 8%, transparent);
+  color:var(--warn);
+}
+.sessions-limit-notice.near {
+  border-color:color-mix(in srgb, #fb923c 35%, transparent);
+  background:color-mix(in srgb, #fb923c 8%, transparent);
+  color:#fb923c;
+}
 .sessions-list { flex:1; overflow-y:auto; padding:0 8px; }
 .sessions-list::-webkit-scrollbar { width:3px; }
 .sessions-list::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
@@ -154,8 +166,10 @@ body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text);
 #chat::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
 .chat-inner { width:100%; max-width:var(--max-w); display:flex; flex-direction:column; }
 
+/* flat logo — no shadow */
 .welcome { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px 20px; text-align:center; gap:12px; width:100%; max-width:var(--max-w); align-self:center; }
-.welcome-svg { width:56px; height:56px; border-radius:16px; overflow:hidden; margin-bottom:4px; box-shadow:0 4px 20px rgba(77,168,218,.2); }
+.welcome-svg { width:56px; height:56px; border-radius:14px; overflow:hidden; margin-bottom:4px; }
+.welcome-svg img { width:56px; height:56px; border-radius:14px; display:block; }
 .welcome h2 { font-size:1.4rem; font-weight:700; }
 .welcome p { font-size:.85rem; color:var(--text-muted); line-height:1.65; max-width:300px; }
 
@@ -268,7 +282,7 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
 .settings-modal {
   background:var(--bg); border:1px solid var(--border);
   border-radius:18px; width:min(680px, 100%);
-  height:min(520px, 90dvh); display:flex; flex-direction:column;
+  height:min(540px, 90dvh); display:flex; flex-direction:column;
   box-shadow:0 24px 64px rgba(0,0,0,.5); overflow:hidden;
 }
 
@@ -323,7 +337,7 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
 .settings-hint a { color:var(--accent); text-decoration:none; }
 .settings-hint a:hover { text-decoration:underline; }
 
-/* Theme cards (DeepSeek style) */
+/* Theme cards */
 .theme-cards { display:flex; gap:10px; flex-wrap:wrap; }
 .theme-card {
   display:flex; flex-direction:column; align-items:center; gap:6px;
@@ -366,8 +380,18 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
 /* Model select */
 .model-select-full { width:100%; font-family:'Outfit',sans-serif; font-size:.82rem; padding:8px 11px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); cursor:pointer; outline:none; transition:border-color .15s; }
 .model-select-full:focus { border-color:var(--accent); }
-#customModelInput { width:100%; font-family:'IBM Plex Mono',monospace; font-size:.78rem; margin-top:7px; padding:8px 11px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); outline:none; transition:border-color .15s; }
-#customModelInput:focus { border-color:var(--accent); }
+#customModelInput, #ollamaModelInput { width:100%; font-family:'IBM Plex Mono',monospace; font-size:.78rem; margin-top:7px; padding:8px 11px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); outline:none; transition:border-color .15s; }
+#customModelInput:focus, #ollamaModelInput:focus { border-color:var(--accent); }
+
+/* Ollama URL row */
+.ollama-url-row { display:flex; gap:6px; margin-top:7px; }
+#ollamaUrlInput { flex:1; font-family:'IBM Plex Mono',monospace; font-size:.78rem; padding:8px 11px; border-radius:8px; border:1px solid var(--border); background:var(--surface2); color:var(--text); outline:none; transition:border-color .15s; }
+#ollamaUrlInput:focus { border-color:var(--accent); }
+#ollamaFetchBtn { font-family:'Outfit',sans-serif; font-size:.78rem; font-weight:500; padding:7px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface3); color:var(--text-sub); cursor:pointer; white-space:nowrap; transition:background .12s, color .12s; }
+#ollamaFetchBtn:hover { background:var(--surface2); color:var(--text); }
+
+/* Ollama note */
+.ollama-note { font-size:.75rem; color:var(--text-muted); line-height:1.55; font-family:'IBM Plex Mono',monospace; padding:8px 11px; border:1px solid var(--border); border-radius:8px; background:color-mix(in srgb, var(--surface2) 50%, transparent); margin-top:8px; }
 
 /* Key input */
 .key-group { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
@@ -451,10 +475,10 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
 
 /* Code block light theme */
 [data-theme="light"] .code-block-wrap pre[class*="language-"],
-[data-theme="light"] .code-block-wrap pre { background:#f6f8fa !important; color:#24292e !important; }
-[data-theme="light"] .code-header { background:#eaeef2; border-bottom-color:#d0d7de; }
+[data-theme="light"] .code-block-wrap pre { background:#f0efe6 !important; color:#24292e !important; }
+[data-theme="light"] .code-header { background:#e4e3da; border-bottom-color:#cac9c0; }
 [data-theme="light"] .code-lang { color:#57606a; }
-[data-theme="light"] .copy-btn { color:#57606a; border-color:#d0d7de; }
+[data-theme="light"] .copy-btn { color:#57606a; border-color:#cac9c0; }
 [data-theme="light"] .copy-btn:hover { color:#24292e; border-color:#8c959f; }
 [data-theme="light"] .token.comment { color:#6a737d; font-style:italic; }
 [data-theme="light"] .token.punctuation { color:#24292e; }
@@ -465,10 +489,10 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
 [data-theme="light"] .token.regex,[data-theme="light"] .token.important { color:#e36209; }
 @media (prefers-color-scheme:light) {
   html:not([data-theme="dark"]) .code-block-wrap pre[class*="language-"],
-  html:not([data-theme="dark"]) .code-block-wrap pre { background:#f6f8fa !important; color:#24292e !important; }
-  html:not([data-theme="dark"]) .code-header { background:#eaeef2; border-bottom-color:#d0d7de; }
+  html:not([data-theme="dark"]) .code-block-wrap pre { background:#f0efe6 !important; color:#24292e !important; }
+  html:not([data-theme="dark"]) .code-header { background:#e4e3da; border-bottom-color:#cac9c0; }
   html:not([data-theme="dark"]) .code-lang { color:#57606a; }
-  html:not([data-theme="dark"]) .copy-btn { color:#57606a; border-color:#d0d7de; }
+  html:not([data-theme="dark"]) .copy-btn { color:#57606a; border-color:#cac9c0; }
   html:not([data-theme="dark"]) .token.comment { color:#6a737d; font-style:italic; }
   html:not([data-theme="dark"]) .token.property,html:not([data-theme="dark"]) .token.number,html:not([data-theme="dark"]) .token.boolean { color:#005cc5; }
   html:not([data-theme="dark"]) .token.string,html:not([data-theme="dark"]) .token.char { color:#032f62; }
@@ -551,7 +575,7 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
   <div class="sb-top">
     <div class="sb-brand">
       <div class="sb-brand-logo">
-        <img src="fast-chat.svg" alt="Fast-chat" style="width:28px;height:28px;border-radius:8px;">
+        <img src="fast-chat.svg" alt="Fast-chat" style="width:28px;height:28px;border-radius:6px;display:block;">
       </div>
       <span class="sb-brand-name">Fast-chat</span>
     </div>
@@ -573,9 +597,12 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
     <button class="icon-btn" id="sidebarToggle">&#9776;</button>
 
     <div class="topbar-model-info" id="topbarModelInfo">
-      <img src="groq-logo.svg" id="tbGroqLogo" class="topbar-prov-logo" alt="Groq" style="display:none">
-      <img src="openrouter-dark.png" id="tbOrDark" class="topbar-prov-logo" alt="OpenRouter" style="display:none">
-      <img src="openrouter-light.png" id="tbOrLight" class="topbar-prov-logo" alt="OpenRouter" style="display:none">
+      <img src="groq.png"             id="tbGroqLogo"    class="topbar-prov-logo" alt="Groq"       style="display:none">
+      <img src="openrouter-dark.png"  id="tbOrDark"      class="topbar-prov-logo" alt="OpenRouter" style="display:none">
+      <img src="openrouter-light.png" id="tbOrLight"     class="topbar-prov-logo" alt="OpenRouter" style="display:none">
+      <img src="google.png"           id="tbGeminiLogo"  class="topbar-prov-logo" alt="Gemini"     style="display:none">
+      <img src="ollama-dark.png"      id="tbOllamaDark"  class="topbar-prov-logo" alt="Ollama"     style="display:none">
+      <img src="ollama-light.png"     id="tbOllamaLight" class="topbar-prov-logo" alt="Ollama"     style="display:none">
       <span id="topbarModelName" class="topbar-model-name">—</span>
       <span class="topbar-chevron">▾</span>
     </div>
@@ -586,10 +613,10 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
   <div id="chat">
     <div class="welcome" id="welcome">
       <div class="welcome-svg">
-        <img src="fast-chat.svg" alt="Fast-chat" style="width:56px;height:56px;border-radius:16px;display:block;">
+        <img src="fast-chat.svg" alt="Fast-chat" style="width:56px;height:56px;border-radius:14px;display:block;">
       </div>
       <h2>Fast-chat</h2>
-      <p>Ask anything. Powered by Groq &amp; OpenRouter.</p>
+      <p>Ask anything. Powered by Groq, OpenRouter, Gemini &amp; Ollama.</p>
     </div>
     <div class="chat-inner" id="chatInner"></div>
   </div>
@@ -696,20 +723,48 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
             <span class="settings-label">Provider</span>
             <div class="provider-btns">
               <button class="prov-btn" id="provBtnGroq" onclick="switchProvider('groq')">
-                <img src="groq-logo.svg" class="prov-logo" alt="Groq">
+                <img src="groq.png" class="prov-logo" alt="Groq">
                 Groq
               </button>
               <button class="prov-btn" id="provBtnOR" onclick="switchProvider('openrouter')">
                 <img src="openrouter-dark.png" class="prov-logo or-logo" alt="OR">
                 OpenRouter
               </button>
+              <button class="prov-btn" id="provBtnGemini" onclick="switchProvider('gemini')">
+                <img src="google.png" class="prov-logo" alt="Gemini">
+                Gemini
+              </button>
+              <button class="prov-btn" id="provBtnOllama" onclick="switchProvider('ollama')">
+                <img src="ollama-dark.png" class="prov-logo ollama-logo" alt="Ollama">
+                Ollama
+              </button>
             </div>
           </div>
 
-          <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+          <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;" id="modelSelectRow">
             <span class="settings-label">Model</span>
             <select id="settingsModelSelect" class="model-select-full"></select>
             <input type="text" id="customModelInput" placeholder="e.g. openai/gpt-4o" style="display:none">
+          </div>
+
+          <!-- Ollama-specific settings -->
+          <div id="ollamaSettings" style="display:none;">
+            <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+              <span class="settings-label">Ollama URL</span>
+              <div class="ollama-url-row">
+                <input type="text" id="ollamaUrlInput" placeholder="http://localhost:11434">
+                <button id="ollamaFetchBtn">Fetch models</button>
+              </div>
+            </div>
+            <div class="settings-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+              <span class="settings-label">Model</span>
+              <select id="ollamaModelSelect" class="model-select-full" style="display:none"></select>
+              <input type="text" id="ollamaModelInput" placeholder="e.g. llama3.2, mistral, qwen2.5">
+              <div class="ollama-note">
+                Requires Ollama running locally with CORS enabled:<br>
+                <code>OLLAMA_ORIGINS=* ollama serve</code>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -718,7 +773,7 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
           <div class="stab-title">API Keys</div>
           <div class="key-group">
             <div class="key-group-label">
-              <img src="groq-logo.svg" style="height:16px;vertical-align:middle"> Groq
+              <img src="groq.png" style="height:16px;vertical-align:middle"> Groq
             </div>
             <div class="key-input-row">
               <input type="password" id="groqKeyInput" placeholder="gsk_...">
@@ -744,10 +799,35 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
             </label>
             <div class="key-status" id="orKeyStatus"></div>
           </div>
-          <div class="settings-hint" style="margin-top:4px">
+          <div class="key-group">
+            <div class="key-group-label">
+              <img src="google.png" style="height:16px;vertical-align:middle;object-fit:contain"> Gemini
+            </div>
+            <div class="key-input-row">
+              <input type="password" id="geminiKeyInput" placeholder="AIza...">
+              <button class="mbtn mbtn-sm mbtn-primary" id="saveGeminiKeyBtn">Save</button>
+            </div>
+            <label class="remember-check" style="margin-bottom:5px">
+              <input type="checkbox" id="rememberGeminiKey">
+              <span class="remember-check-label">Remember key</span>
+            </label>
+            <div class="key-status" id="geminiKeyStatus"></div>
+          </div>
+          <div class="key-group" style="border-bottom:none;padding-bottom:0;">
+            <div class="key-group-label">
+              <img src="ollama-dark.png" class="ollama-logo" style="height:16px;vertical-align:middle;object-fit:contain"> Ollama
+            </div>
+            <div class="ollama-note" style="margin-top:0;">
+              Ollama runs locally — no API key needed.<br>
+              Configure the URL in the Model tab.
+            </div>
+          </div>
+          <div class="settings-hint" style="margin-top:12px">
             Groq: <a href="https://console.groq.com" target="_blank" rel="noopener">console.groq.com</a>
             &nbsp;·&nbsp;
             OpenRouter: <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>
+            &nbsp;·&nbsp;
+            Gemini: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>
           </div>
         </div>
 
@@ -779,20 +859,24 @@ code[class*="language-"], pre[class*="language-"] { font-family:'IBM Plex Mono',
         <div class="stab" id="stab-about">
           <div class="stab-title">About</div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0 24px;text-align:center;">
-            <img src="fast-chat.svg" alt="Fast-chat" style="width:64px;height:64px;border-radius:18px;box-shadow:0 4px 20px rgba(77,168,218,.25);">
+            <img src="fast-chat.svg" alt="Fast-chat" style="width:64px;height:64px;border-radius:16px;display:block;">
             <div>
               <div style="font-size:1.15rem;font-weight:700;margin-bottom:4px;">Fast-chat</div>
-              <div style="font-size:.78rem;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;">v1.0</div>
+              <div style="font-size:.78rem;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;">v1.1</div>
             </div>
             <p style="font-size:.85rem;color:var(--text-sub);line-height:1.7;max-width:340px;">
-              A lightweight, single-file chat interface powered by <strong>Groq</strong> and <strong>OpenRouter</strong>.
+              A lightweight, single-file chat interface powered by <strong>Groq</strong>, <strong>OpenRouter</strong>, <strong>Gemini</strong> and <strong>Ollama</strong>.
               No server, no tracking — everything runs in your browser.
               Supports streaming, markdown, syntax highlighting, image input, and multiple chat sessions.
             </p>
             <div style="display:flex;flex-direction:column;gap:6px;width:100%;max-width:300px;text-align:left;">
               <div style="display:flex;justify-content:space-between;font-size:.8rem;padding:8px 12px;background:var(--surface2);border-radius:8px;">
                 <span style="color:var(--text-muted);">Source</span>
-                <a href="https://github.com/adrianpriza-ai/fast-chat" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.76rem;">github</a>
+                <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.76rem;">github</a>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:.8rem;padding:8px 12px;background:var(--surface2);border-radius:8px;">
+                <span style="color:var(--text-muted);">License</span>
+                <span style="color:var(--text-sub);font-family:'IBM Plex Mono',monospace;font-size:.76rem;">MIT</span>
               </div>
             </div>
           </div>
@@ -812,12 +896,17 @@ const LS_CURRENT   = 'fc_cur';
 const LS_PROVIDER  = 'fc_provider';
 const LS_GMODEL    = 'fc_gmodel';
 const LS_ORMODEL   = 'fc_ormodel';
+const LS_GEMINI_MODEL  = 'fc_gemmodel';
+const LS_OLLAMA_MODEL  = 'fc_olmodel';
+const LS_OLLAMA_URL    = 'fc_olurl';
 const LS_THEME     = 'fc_theme';
 const LS_ACCENT    = 'fc_accent';
 const LS_GKEY      = 'fc_gkey';
 const LS_ORKEY     = 'fc_orkey';
+const LS_GEMKEY    = 'fc_gemkey';
 const SS_GKEY      = 'fc_gkey_ss';
 const SS_ORKEY     = 'fc_orkey_ss';
+const SS_GEMKEY    = 'fc_gemkey_ss';
 const LS_SYSPROMPT = 'fc_sys';
 
 const GROQ_MODELS = [
@@ -839,6 +928,14 @@ const OR_MODELS = [
   { id:'openai/gpt-4o-mini',                             label:'GPT-4o Mini' },
   { id:'custom',                                         label:'Custom model...' },
 ];
+const GEMINI_MODELS = [
+  { id:'gemini-2.5-flash-preview-05-20',  label:'Gemini 2.5 Flash' },
+  { id:'gemini-2.5-pro-preview-06-05',    label:'Gemini 2.5 Pro' },
+  { id:'gemini-2.0-flash',                label:'Gemini 2.0 Flash' },
+  { id:'gemini-2.0-flash-lite',           label:'Gemini 2.0 Flash Lite' },
+  { id:'gemini-1.5-pro',                  label:'Gemini 1.5 Pro' },
+  { id:'gemini-1.5-flash',                label:'Gemini 1.5 Flash' },
+];
 
 // ── DOM refs ──
 const chatEl       = document.getElementById('chat');
@@ -857,7 +954,7 @@ const imgPreviewStrip = document.getElementById('imgPreviewStrip');
 const imgPreviewEl = document.getElementById('imgPreviewEl');
 
 let sessions = {}, currentId = null, isLoading = false;
-let pendingImage = null; // base64 data URL of pending image attachment
+let pendingImage = null;
 let cbId = 0, thinkIdx = 0;
 
 // ── XSS helpers ──
@@ -970,13 +1067,11 @@ function md(raw){
 
 // ── Post-process: Prism highlight + KaTeX ──
 function postProcess(el){
-  // Prism syntax highlight
   el.querySelectorAll('code[data-code]').forEach(code=>{
     code.textContent=decodeURIComponent(code.dataset.code);
     if(typeof Prism!=='undefined') Prism.highlightElement(code);
     else setTimeout(()=>{if(typeof Prism!=='undefined')Prism.highlightElement(code);},600);
   });
-  // KaTeX
   if(typeof katex==='undefined'){setTimeout(()=>postProcess(el),300);return;}
   el.querySelectorAll('.katex-block[data-math]').forEach(node=>{
     try{katex.render(node.dataset.math,node,{displayMode:true,throwOnError:false});}
@@ -1019,33 +1114,92 @@ function toggleThink(id){
 function getProvider(){ return localStorage.getItem(LS_PROVIDER)||'groq'; }
 function getModel(){
   const p=getProvider();
-  if(p==='groq') return localStorage.getItem(LS_GMODEL)||GROQ_MODELS[0].id;
+  if(p==='groq')   return localStorage.getItem(LS_GMODEL)||GROQ_MODELS[0].id;
+  if(p==='gemini') return localStorage.getItem(LS_GEMINI_MODEL)||GEMINI_MODELS[0].id;
+  if(p==='ollama') return localStorage.getItem(LS_OLLAMA_MODEL)||'';
+  // openrouter
   const m=localStorage.getItem(LS_ORMODEL)||OR_MODELS[0].id;
-  return m==='custom'?''  :m;
+  return m==='custom'?'':m;
 }
 function getModelLabel(){
   const p=getProvider(); const m=getModel();
-  const list=p==='groq'?GROQ_MODELS:OR_MODELS;
-  return list.find(x=>x.id===m)?.label||m.split('/').pop()||'—';
+  if(p==='groq')   return GROQ_MODELS.find(x=>x.id===m)?.label||m||'—';
+  if(p==='gemini') return GEMINI_MODELS.find(x=>x.id===m)?.label||m||'—';
+  if(p==='ollama') return m||'Ollama';
+  return OR_MODELS.find(x=>x.id===m)?.label||m.split('/').pop()||'—';
 }
+function getOllamaUrl(){ return (localStorage.getItem(LS_OLLAMA_URL)||'http://localhost:11434').replace(/\/+$/,''); }
 
 // ── API Keys ──
-function getKey(p){ p=p||getProvider(); return p==='groq'?(localStorage.getItem(LS_GKEY)||sessionStorage.getItem(SS_GKEY)||null):(localStorage.getItem(LS_ORKEY)||sessionStorage.getItem(SS_ORKEY)||null); }
+function getKey(p){
+  p=p||getProvider();
+  if(p==='groq')   return localStorage.getItem(LS_GKEY)||sessionStorage.getItem(SS_GKEY)||null;
+  if(p==='gemini') return localStorage.getItem(LS_GEMKEY)||sessionStorage.getItem(SS_GEMKEY)||null;
+  if(p==='ollama') return 'ollama'; // no key needed, return dummy truthy
+  return localStorage.getItem(LS_ORKEY)||sessionStorage.getItem(SS_ORKEY)||null;
+}
 function saveKey(p,val,remember){
   const clean=sanitizeKey(val);
-  const lk=p==='groq'?LS_GKEY:LS_ORKEY;
-  const sk=p==='groq'?SS_GKEY:SS_ORKEY;
-  if(remember){localStorage.setItem(lk,clean);sessionStorage.removeItem(sk);}
-  else{sessionStorage.setItem(sk,clean);localStorage.removeItem(lk);}
+  if(p==='groq'){
+    if(remember){localStorage.setItem(LS_GKEY,clean);sessionStorage.removeItem(SS_GKEY);}
+    else{sessionStorage.setItem(SS_GKEY,clean);localStorage.removeItem(LS_GKEY);}
+  } else if(p==='gemini'){
+    if(remember){localStorage.setItem(LS_GEMKEY,clean);sessionStorage.removeItem(SS_GEMKEY);}
+    else{sessionStorage.setItem(SS_GEMKEY,clean);localStorage.removeItem(LS_GEMKEY);}
+  } else {
+    if(remember){localStorage.setItem(LS_ORKEY,clean);sessionStorage.removeItem(SS_ORKEY);}
+    else{sessionStorage.setItem(SS_ORKEY,clean);localStorage.removeItem(LS_ORKEY);}
+  }
 }
-function isKeyRemembered(p){ return !!(p==='groq'?localStorage.getItem(LS_GKEY):localStorage.getItem(LS_ORKEY)); }
+function isKeyRemembered(p){
+  if(p==='groq')   return !!localStorage.getItem(LS_GKEY);
+  if(p==='gemini') return !!localStorage.getItem(LS_GEMKEY);
+  return !!localStorage.getItem(LS_ORKEY);
+}
 
 // ── System prompt ──
 function getSysPrompt(){ return localStorage.getItem(LS_SYSPROMPT)||''; }
 
+// ── Ollama: fetch available models ──
+async function fetchOllamaModels(){
+  const url=document.getElementById('ollamaUrlInput').value.trim()||'http://localhost:11434';
+  const btn=document.getElementById('ollamaFetchBtn');
+  btn.textContent='Fetching…'; btn.disabled=true;
+  try{
+    const res=await fetch(url.replace(/\/+$/,'')+'/api/tags');
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    const models=(data.models||[]).map(m=>m.name||m.model||m);
+    const sel=document.getElementById('ollamaModelSelect');
+    sel.innerHTML='';
+    models.forEach(m=>{
+      const opt=document.createElement('option');opt.value=m;opt.textContent=m;sel.appendChild(opt);
+    });
+    // Restore saved selection
+    const saved=localStorage.getItem(LS_OLLAMA_MODEL);
+    if(saved&&models.includes(saved)) sel.value=saved;
+    else if(models.length){ localStorage.setItem(LS_OLLAMA_MODEL,models[0]); sel.value=models[0]; }
+    sel.style.display='block';
+    document.getElementById('ollamaModelInput').style.display='none';
+    localStorage.setItem(LS_OLLAMA_URL,url.replace(/\/+$/,''));
+    updateTopbar();
+    setStatus('Found '+models.length+' models',true);
+    // Listen for changes
+    sel.onchange=e=>{
+      localStorage.setItem(LS_OLLAMA_MODEL,e.target.value);
+      updateTopbar();
+    };
+  }catch(e){
+    setStatus('Ollama error: '+e.message,false,true);
+    document.getElementById('ollamaModelSelect').style.display='none';
+    document.getElementById('ollamaModelInput').style.display='block';
+  }finally{
+    btn.textContent='Fetch models'; btn.disabled=false;
+  }
+}
+
 // ── Init ──
 function init(){
-  // Set Prism autoloader path once loaded
   window.addEventListener('load',()=>{
     if(typeof Prism!=='undefined'&&Prism.plugins?.autoloader)
       Prism.plugins.autoloader.languages_path='https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/';
@@ -1053,33 +1207,28 @@ function init(){
 
   const saved=localStorage.getItem(LS_SESSIONS);
   sessions=saved?JSON.parse(saved):{};
-  const cur=localStorage.getItem(LS_CURRENT);
+  // Always start at fresh new-chat state — never resume last session
+  currentId=null;
   applyTheme(localStorage.getItem(LS_THEME)||'auto',false);
   applyAccent(localStorage.getItem(LS_ACCENT)||'#4da8da',false);
-  if(cur&&sessions[cur])currentId=cur;
-  else newSession(false);
   renderSidebar(); renderChat(); updateTopbar();
-  // Show settings if no key set for current provider
-  if(!getKey()) openSettings();
+  const p=getProvider();
+  if(p!=='ollama'&&!getKey()) openSettings();
 }
 
 // ── Sessions ──
 function newSession(focus=true){
-  const ids=Object.keys(sessions);
-  if(ids.length>=MAX_SESSIONS)delete sessions[ids[0]];
-  const id='s'+Date.now();
-  sessions[id]={title:'New Chat',msgs:[]};
-  currentId=id;
-  saveSessions(); renderSidebar(); renderChat();
-  if(focus){closeSidebar();userInput.focus();}
+  // Don't create a session object yet — only created when user sends first message
+  currentId=null;
+  renderSidebar(); renderChat();
+  if(focus){ closeSidebar(); userInput.focus(); }
 }
 function switchSession(id){currentId=id;saveSessions();renderSidebar();renderChat();closeSidebar();}
 function deleteSessionById(id){
   delete sessions[id]; saveSessions();
   if(currentId===id){
-    const ids=Object.keys(sessions);
-    if(ids.length)currentId=ids[ids.length-1];
-    else{newSession(false);return;}
+    // Go to fresh new-chat state instead of jumping to another session
+    currentId=null;
   }
   renderSidebar(); renderChat();
 }
@@ -1087,12 +1236,11 @@ function deleteSession(id,e){ e.stopPropagation(); deleteSessionById(id); }
 function saveSessions(){
   try{localStorage.setItem(LS_SESSIONS,JSON.stringify(sessions));}
   catch(e){
-    // Strip images if over quota
     const stripped=JSON.parse(JSON.stringify(sessions));
     Object.values(stripped).forEach(s=>s.msgs.forEach(m=>delete m.image));
     try{localStorage.setItem(LS_SESSIONS,JSON.stringify(stripped));}catch(_){}
   }
-  localStorage.setItem(LS_CURRENT,currentId);
+  // currentId is intentionally NOT persisted — always start fresh on reload
 }
 function setTitle(id,text){
   const safe=text.slice(0,40);
@@ -1101,7 +1249,6 @@ function setTitle(id,text){
 }
 
 function renameSession(id){
-  // Find the session-name element and replace with inline input
   const items=sessionsList.querySelectorAll('.session-item');
   items.forEach(el=>{
     const idAttr=el.dataset.sid;
@@ -1114,10 +1261,7 @@ function renameSession(id){
     inp.value=oldTitle; inp.maxLength=60;
     nm.textContent=''; nm.appendChild(inp);
     inp.focus(); inp.select();
-    const commit=()=>{
-      const v=inp.value.trim()||oldTitle;
-      setTitle(id,v); // re-renders sidebar
-    };
+    const commit=()=>{ const v=inp.value.trim()||oldTitle; setTitle(id,v); };
     inp.addEventListener('blur',commit);
     inp.addEventListener('keydown',e=>{
       if(e.key==='Enter'){e.preventDefault();inp.blur();}
@@ -1144,6 +1288,21 @@ function closeAllCtx(){ document.querySelectorAll('.session-ctx.open').forEach(m
 
 function renderSidebar(){
   sessionsList.innerHTML='';
+  const count=Object.keys(sessions).length;
+
+  // Near-limit / at-limit notice
+  if(count>=MAX_SESSIONS){
+    const n=document.createElement('div');
+    n.className='sessions-limit-notice';
+    n.textContent='Limit reached ('+MAX_SESSIONS+'). Oldest chat removed when new one starts.';
+    sessionsList.appendChild(n);
+  } else if(count>=MAX_SESSIONS-5){
+    const n=document.createElement('div');
+    n.className='sessions-limit-notice near';
+    n.textContent=(MAX_SESSIONS-count)+' chat slot'+(MAX_SESSIONS-count===1?'':'s')+' remaining before oldest is removed.';
+    sessionsList.appendChild(n);
+  }
+
   Object.keys(sessions).reverse().forEach(id=>{
     const el=document.createElement('div');
     el.className='session-item'+(id===currentId?' active':'');
@@ -1197,6 +1356,7 @@ document.addEventListener('click',()=>closeAllCtx());
 // ── Render chat ──
 function renderChat(){
   chatInner.innerHTML='';
+  if(!currentId){ welcome.style.display='flex'; return; }
   const cur=sessions[currentId];
   if(!cur||!cur.msgs.length){welcome.style.display='flex';return;}
   welcome.style.display='none';
@@ -1246,12 +1406,18 @@ function resolveTheme(){
 
 function updateProviderLogo(){
   const p=getProvider(), dark=resolveTheme()==='dark';
-  document.getElementById('tbGroqLogo').style.display=p==='groq'?'':'none';
-  document.getElementById('tbOrDark').style.display=(p==='openrouter'&&dark)?'':'none';
-  document.getElementById('tbOrLight').style.display=(p==='openrouter'&&!dark)?'':'none';
-  // Update OR logo in settings based on theme
+  document.getElementById('tbGroqLogo').style.display=   (p==='groq')?'':'none';
+  document.getElementById('tbOrDark').style.display=     (p==='openrouter'&&dark)?'':'none';
+  document.getElementById('tbOrLight').style.display=    (p==='openrouter'&&!dark)?'':'none';
+  document.getElementById('tbGeminiLogo').style.display= (p==='gemini')?'':'none';
+  document.getElementById('tbOllamaDark').style.display=  (p==='ollama'&&dark)?'':'none';
+  document.getElementById('tbOllamaLight').style.display= (p==='ollama'&&!dark)?'':'none';
+
+  // Update theme-sensitive logos in settings
   const orSrc=dark?'openrouter-dark.png':'openrouter-light.png';
   document.querySelectorAll('.or-logo').forEach(img=>img.src=orSrc);
+  const olSrc=dark?'ollama-dark.png':'ollama-light.png';
+  document.querySelectorAll('.ollama-logo').forEach(img=>img.src=olSrc);
 }
 
 // ── Send / Stream ──
@@ -1262,8 +1428,21 @@ async function send(){
   if(text.length>MAX_INPUT){setStatus('Too long',false,true);return;}
 
   const p=getProvider(), key=getKey(p), model=getModel();
-  if(!key){openSettings();setStatus('API key required',false,true);return;}
-  if(!model){setStatus('Select a model',false,true);return;}
+
+  if(p!=='ollama'&&!key){openSettings();setStatus('API key required',false,true);return;}
+  if(!model&&p!=='ollama'){setStatus('Select a model',false,true);return;}
+
+  // Create a session now if we're in "new chat" state
+  if(!currentId){
+    const ids=Object.keys(sessions);
+    if(ids.length>=MAX_SESSIONS){
+      delete sessions[ids[0]]; // drop oldest to make room
+    }
+    const id='s'+Date.now();
+    sessions[id]={title:'New Chat',msgs:[]};
+    currentId=id;
+    renderSidebar();
+  }
 
   const cur=sessions[currentId];
   cur.msgs.push({role:'user',content:text,image:imgToSend});
@@ -1293,7 +1472,7 @@ async function send(){
   const apiMsgs=[];
   if(sysPrompt) apiMsgs.push({role:'system',content:sysPrompt});
   cur.msgs.forEach((m,i)=>{
-    if(i===cur.msgs.length-1)return; // current user msg added separately
+    if(i===cur.msgs.length-1)return;
     if(m.image){
       apiMsgs.push({role:m.role,content:[{type:'image_url',image_url:{url:m.image}},{type:'text',text:m.content||''}]});
     } else {
@@ -1307,15 +1486,32 @@ async function send(){
     apiMsgs.push({role:'user',content:text});
   }
 
-  const endpoint=p==='groq'?'https://api.groq.com/openai/v1/chat/completions':'https://openrouter.ai/api/v1/chat/completions';
-  const extraHeaders=p==='openrouter'?{'HTTP-Referer':location.origin||'https://fast-chat.pages.dev','X-Title':'Fast-chat'}:{};
+  // ── Endpoint & headers per provider ──
+  let endpoint, headers;
+
+  if(p==='groq'){
+    endpoint='https://api.groq.com/openai/v1/chat/completions';
+    headers={'Content-Type':'application/json','Authorization':'Bearer '+key};
+  } else if(p==='openrouter'){
+    endpoint='https://openrouter.ai/api/v1/chat/completions';
+    headers={'Content-Type':'application/json','Authorization':'Bearer '+key,'HTTP-Referer':location.origin||'https://fast-chat.pages.dev','X-Title':'Fast-chat'};
+  } else if(p==='gemini'){
+    endpoint='https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
+    headers={'Content-Type':'application/json','Authorization':'Bearer '+key};
+  } else {
+    // Ollama - OpenAI-compatible
+    endpoint=getOllamaUrl()+'/v1/chat/completions';
+    headers={'Content-Type':'application/json'};
+  }
+
+  const finalModel= p==='ollama' ? (localStorage.getItem(LS_OLLAMA_MODEL)||model) : model;
 
   let full='';
   try{
     const res=await fetch(endpoint,{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+key,...extraHeaders},
-      body:JSON.stringify({model,messages:apiMsgs,stream:true,max_tokens:4096})
+      headers,
+      body:JSON.stringify({model:finalModel,messages:apiMsgs,stream:true,max_tokens:4096})
     });
     if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e?.error?.message||'HTTP '+res.status);}
     const reader=res.body.getReader(),dec=new TextDecoder();
@@ -1345,7 +1541,6 @@ function setTheme(t){applyTheme(t,true);}
 function applyTheme(t,save){
   if(!t||t==='auto'){document.documentElement.removeAttribute('data-theme');}
   else document.documentElement.setAttribute('data-theme',t);
-  // Update both card-style and any legacy toggle buttons
   ['themeAuto','themeDark','themeLight'].forEach(id=>{
     const el=document.getElementById(id);
     if(el)el.classList.toggle('on',el.dataset.t===(t||'auto'));
@@ -1370,11 +1565,23 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>
   if(t==='auto')updateProviderLogo();
 });
 
+// ── Settings tabs ──
+function switchSettingsTab(tab){
+  document.querySelectorAll('.snav-item').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.stab').forEach(t=>t.classList.toggle('active',t.id==='stab-'+tab));
+}
+document.querySelectorAll('.snav-item').forEach(btn=>{
+  btn.addEventListener('click',()=>switchSettingsTab(btn.dataset.tab));
+});
+
 // ── Switch provider ──
 function switchProvider(p){
   localStorage.setItem(LS_PROVIDER,p);
-  document.getElementById('provBtnGroq').classList.toggle('on',p==='groq');
-  document.getElementById('provBtnOR').classList.toggle('on',p==='openrouter');
+  ['provBtnGroq','provBtnOR','provBtnGemini','provBtnOllama'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.classList.remove('on');
+  });
+  const activeMap={groq:'provBtnGroq',openrouter:'provBtnOR',gemini:'provBtnGemini',ollama:'provBtnOllama'};
+  document.getElementById(activeMap[p])?.classList.add('on');
   populateModelSelect(p);
   updateTopbar();
 }
@@ -1382,15 +1589,38 @@ function switchProvider(p){
 function populateModelSelect(p){
   const sel=document.getElementById('settingsModelSelect');
   const customInput=document.getElementById('customModelInput');
+  const ollamaSettings=document.getElementById('ollamaSettings');
+  const modelSelectRow=document.getElementById('modelSelectRow');
+
+  // Show/hide Ollama settings vs normal model select
+  if(p==='ollama'){
+    modelSelectRow.style.display='none';
+    ollamaSettings.style.display='block';
+    // Restore saved URL
+    document.getElementById('ollamaUrlInput').value=localStorage.getItem(LS_OLLAMA_URL)||'http://localhost:11434';
+    // Restore saved model
+    const savedModel=localStorage.getItem(LS_OLLAMA_MODEL)||'';
+    document.getElementById('ollamaModelInput').value=savedModel;
+    document.getElementById('ollamaModelInput').style.display='block';
+    document.getElementById('ollamaModelSelect').style.display='none';
+    return;
+  }
+
+  modelSelectRow.style.display='block';
+  ollamaSettings.style.display='none';
   sel.innerHTML='';
-  const models=p==='groq'?GROQ_MODELS:OR_MODELS;
-  const saved=p==='groq'?localStorage.getItem(LS_GMODEL):localStorage.getItem(LS_ORMODEL);
+
+  const models=p==='groq'?GROQ_MODELS:p==='gemini'?GEMINI_MODELS:OR_MODELS;
+  const lsKey=p==='groq'?LS_GMODEL:p==='gemini'?LS_GEMINI_MODEL:LS_ORMODEL;
+  const saved=localStorage.getItem(lsKey);
+
   models.forEach(m=>{
     const opt=document.createElement('option');opt.value=m.id;opt.textContent=m.label;
     if(saved&&saved===m.id)opt.selected=true;
     sel.appendChild(opt);
   });
   if(!saved&&models.length)sel.value=models[0].id;
+
   // Custom OpenRouter model
   if(p==='openrouter'&&saved&&!OR_MODELS.find(m=>m.id===saved)){
     sel.value='custom';customInput.value=saved;customInput.style.display='block';
@@ -1406,40 +1636,41 @@ document.getElementById('settingsModelSelect').addEventListener('change',e=>{
     document.getElementById('customModelInput').style.display='';
   } else {
     document.getElementById('customModelInput').style.display='none';
-    if(p==='groq')localStorage.setItem(LS_GMODEL,v);
-    else localStorage.setItem(LS_ORMODEL,v);
+    const lsKey=p==='groq'?LS_GMODEL:p==='gemini'?LS_GEMINI_MODEL:LS_ORMODEL;
+    localStorage.setItem(lsKey,v);
     updateTopbar();
   }
 });
 document.getElementById('customModelInput').addEventListener('input',e=>{
   localStorage.setItem(LS_ORMODEL,e.target.value);updateTopbar();
 });
-
-// ── Settings tabs ──
-function switchSettingsTab(tab){
-  document.querySelectorAll('.snav-item').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
-  document.querySelectorAll('.stab').forEach(t=>t.classList.toggle('active',t.id==='stab-'+tab));
-}
-document.querySelectorAll('.snav-item').forEach(btn=>{
-  btn.addEventListener('click',()=>switchSettingsTab(btn.dataset.tab));
+document.getElementById('ollamaModelInput').addEventListener('input',e=>{
+  localStorage.setItem(LS_OLLAMA_MODEL,e.target.value);updateTopbar();
 });
+document.getElementById('ollamaFetchBtn').addEventListener('click',fetchOllamaModels);
 
 // ── Settings modal ──
 function openSettings(tab){
   tab=tab||'general';
   switchSettingsTab(tab);
   const p=getProvider();
-  document.getElementById('provBtnGroq').classList.toggle('on',p==='groq');
-  document.getElementById('provBtnOR').classList.toggle('on',p==='openrouter');
+  ['provBtnGroq','provBtnOR','provBtnGemini','provBtnOllama'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.classList.remove('on');
+  });
+  const activeMap={groq:'provBtnGroq',openrouter:'provBtnOR',gemini:'provBtnGemini',ollama:'provBtnOllama'};
+  document.getElementById(activeMap[p])?.classList.add('on');
   populateModelSelect(p);
   // Keys
-  const gkey=getKey('groq'),okey=getKey('openrouter');
+  const gkey=getKey('groq'), okey=getKey('openrouter'), gemkey=getKey('gemini');
   document.getElementById('groqKeyInput').value='';
   document.getElementById('orKeyInput').value='';
+  document.getElementById('geminiKeyInput').value='';
   document.getElementById('rememberGroqKey').checked=isKeyRemembered('groq');
   document.getElementById('rememberOrKey').checked=isKeyRemembered('openrouter');
+  document.getElementById('rememberGeminiKey').checked=isKeyRemembered('gemini');
   updateKeyStatus('groq',gkey);
   updateKeyStatus('openrouter',okey);
+  updateKeyStatus('gemini',gemkey);
   // System prompt
   document.getElementById('sysPromptInput').value=getSysPrompt();
   // Theme cards
@@ -1450,13 +1681,15 @@ function openSettings(tab){
   settingsModal.classList.add('open');
 }
 function closeSettings(){
-  // Save system prompt on close
   localStorage.setItem(LS_SYSPROMPT,document.getElementById('sysPromptInput').value.trim());
   settingsModal.classList.remove('open');
 }
 function updateKeyStatus(p,key){
-  const el=document.getElementById(p==='groq'?'groqKeyStatus':'orKeyStatus');
-  if(key){el.textContent='✓ Key set ('+(isKeyRemembered(p)?'persisted':'session only')+')';el.className='key-status set';}
+  const idMap={groq:'groqKeyStatus',openrouter:'orKeyStatus',gemini:'geminiKeyStatus'};
+  const el=document.getElementById(idMap[p]);
+  if(!el)return;
+  if(p==='ollama'){el.textContent='No key needed';return;}
+  if(key&&p!=='ollama'){el.textContent='✓ Key set ('+(isKeyRemembered(p)?'persisted':'session only')+')';el.className='key-status set';}
   else{el.textContent='No key set';el.className='key-status missing';}
 }
 
@@ -1475,6 +1708,14 @@ document.getElementById('saveOrKeyBtn').addEventListener('click',()=>{
   document.getElementById('orKeyInput').value='';
   updateKeyStatus('openrouter',getKey('openrouter'));
   setStatus('OpenRouter key saved',true);
+});
+document.getElementById('saveGeminiKeyBtn').addEventListener('click',()=>{
+  const v=document.getElementById('geminiKeyInput').value.trim();
+  if(!v)return;
+  saveKey('gemini',v,document.getElementById('rememberGeminiKey').checked);
+  document.getElementById('geminiKeyInput').value='';
+  updateKeyStatus('gemini',getKey('gemini'));
+  setStatus('Gemini key saved',true);
 });
 
 document.getElementById('settingsBtn')?.addEventListener('click',openSettings);
@@ -1528,6 +1769,7 @@ function exportChatById(id, format){
 }
 
 function exportChat(format){ exportChatById(currentId, format); }
+
 // ── Sidebar / overlay ──
 function closeSidebar(){
   if(window.innerWidth<=640){sidebar.classList.remove('mobile-open');overlay.classList.remove('show');}
@@ -1560,9 +1802,8 @@ sendBtn.addEventListener('click',send);
     const keyboardH = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
     if (keyboardH > 50) {
       inputArea.style.bottom = keyboardH + 'px';
-      // Extra bottom padding so chat content isn't hidden behind input+keyboard
       chatEl2.style.paddingBottom = (keyboardH + 160) + 'px';
-      if (vv.height < prevH) scrollDown(); // keyboard just opened
+      if (vv.height < prevH) scrollDown();
     } else {
       inputArea.style.bottom = '';
       chatEl2.style.paddingBottom = '';
