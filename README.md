@@ -3,7 +3,7 @@
   
   # fast-chat
 
-  ![screenshot](adrianpriza-ai.github.io/fast-chat.png)
+  ![screenshot](https://adrianpriza-ai.github.io/fast-chat.png)
 </div>
 
 A lightweight, single-file AI chat interface. No server, no build step, no tracking — just Visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
