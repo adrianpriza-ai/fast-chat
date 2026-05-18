@@ -23,7 +23,7 @@ A lightweight, single-file AI chat interface. No server, no build step, no track
 Download or clone the repo, then open `index.html` directly in your browser. That's it.
 
 ```bash
-git clone https://github.com/your-username/fast-chat.git
+git clone https://github.com/adrianpriza-ai/fast-chat
 cd fast-chat
 open index.html   # or just double-click it
 ```
