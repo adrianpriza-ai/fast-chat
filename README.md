@@ -58,7 +58,7 @@ The following images are expected alongside `index.html`:
 | File | Used for |
 |---|---|
 | `fast-chat.svg` | App icon / logo |
-| `groq-logo.svg` | Groq provider button and topbar |
+| `groq.png` | Groq provider button and topbar |
 | `openrouter-dark.png` | OpenRouter logo (dark theme) |
 | `openrouter-light.png` | OpenRouter logo (light theme) |
 | `google.png` | Gemini provider button and topbar |
