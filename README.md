@@ -2,11 +2,13 @@
   <img src="fast-chat.svg" width="80">
   
   # fast-chat
-
-  ![screenshot](https://adrianpriza-ai.github.io/fast-chat.png)
 </div>
 
 A lightweight, single-file AI chat interface. No server, no build step, no tracking — just Visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
+
+<div align="center">
+  <img src="https://adrianpriza-ai.github.io/fast-chat.png" alt="screenshot" height="450">
+</div>
 
 ## Features
 
