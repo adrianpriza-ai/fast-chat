@@ -1,8 +1,12 @@
-# fast-chat
+<div align="center">
+  <img src="fast-chat.svg" width="80">
+  
+  # fast-chat
 
-A lightweight, single-file AI chat interface. No server, no build step, no tracking — just open `index.html` in a browser.
+  ![screenshot](adrianpriza-ai.github.io/fast-chat.png)
+</div>
 
-![screenshot placeholder](screenshot.png)
+A lightweight, single-file AI chat interface. No server, no build step, no tracking — just Visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
 
 ## Features
 
@@ -20,13 +24,9 @@ A lightweight, single-file AI chat interface. No server, no build step, no track
 
 ## Getting Started
 
-Download or clone the repo, then open `index.html` directly in your browser. That's it.
+Visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** — no install, no signup, just open and chat.
 
-```bash
-git clone https://github.com/adrianpriza-ai/fast-chat
-cd fast-chat
-open index.html   # or just double-click it
-```
+Or self-host by cloning the repo and opening `index.html` in any browser.
 
 ### API Keys
 
