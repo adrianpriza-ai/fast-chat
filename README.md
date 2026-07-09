@@ -36,7 +36,7 @@ Go to **Settings → API Keys** and paste your key for whichever provider you wa
 
 | Provider | Where to get a key |
 |---|---|
-| Groq | [console.groq.com](https://console.groq.com) |
+| Groq | [console.groq.com/keys](https://console.groq.com/keys) |
 | OpenRouter | [openrouter.ai/keys](https://openrouter.ai/keys) |
 | Gemini | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
 | Ollama | No key needed — runs locally |
