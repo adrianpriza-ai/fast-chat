@@ -4,7 +4,7 @@
   # fast-chat
 </div>
 
-A lightweight, single-file AI chat interface. No server, no build step, no tracking — just visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
+A lightweight, AI chat interface. No server, no build step, no tracking — just visit **[fastchat-ai.pages.dev](https://fastchat-ai.pages.dev)** in a browser.
 
 <div align="center">
   <img src="https://adrianpriza-ai.github.io/fast-chat.png" alt="screenshot" height="450">
@@ -22,7 +22,7 @@ A lightweight, single-file AI chat interface. No server, no build step, no track
 - **Customizable accent color**
 - **System prompt** support
 - **Export** chats as `.md` or `.txt`
-- Zero dependencies to install — CDN assets only
+- **Zero dependencies** to install — CDN assets only
 
 ## Getting Started
 
